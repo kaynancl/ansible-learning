@@ -1,6 +1,6 @@
 FROM amazonlinux
 RUN yum update -y
-RUN amazon-linux-extras install ansible2 -y
+RUN yum install net-tools -y
 
 RUN yum install -y openssh-server \
   && sed -i s/PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
