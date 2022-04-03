@@ -1,17 +1,14 @@
 services:
-  amazonlinux-ssh:
-    image: amazonlinux-ssh
-    build: amazonlinux-ssh
-    container_name: amazonlinux-ssh
-    ports:
-      - "2222:22"
   amazonlinux-ansible:
     image: amazonlinux-ansible
     build: amazonlinux-ansible
     container_name: amazonlinux-ansible
-    links:
-      - "amazonlinux-ssh"
-    #    entrypoint: ["ansible", "amazonlinux-ssh", "-m", "ping"]
-    entrypoint: ["ping", "amazonlinux-ssh"]
+    entrypoint: ["ansible", "all", "-m", "ping", "-i", "inventory"]
     depends_on:
-      - amazonlinux-ssh
+      - alpine-sshd
+  alpine-sshd:
+    image: alpine-sshd
+    build: alpine-sshd
+    container_name: alpine-sshd
+    ports:
+      - 22

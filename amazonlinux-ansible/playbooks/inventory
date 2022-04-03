@@ -1,0 +1,12 @@
+[localhost]
+127.0.0.1
+
+[localhost:vars]
+ansible_connection=local
+
+[target]
+alpine-sshd
+
+[target:vars]
+ansible_user=ansible-learning
+ansible_ssh_pass=ansible-learning
