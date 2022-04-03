@@ -1,0 +1,7 @@
+- name: Copy File to Target Servers
+  hosts: target
+  tasks:
+    - name: Copy File
+      copy:
+        src: inventory
+        dest: /tmp/inventory

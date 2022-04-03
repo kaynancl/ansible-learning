@@ -3,7 +3,7 @@ services:
     image: amazonlinux-ansible
     build: amazonlinux-ansible
     container_name: amazonlinux-ansible
-    entrypoint: ["ansible", "all", "-m", "ping", "-i", "inventory"]
+    entrypoint: ["ansible-playbook", "playbook-copyfile.yml", "-i", "inventory"]
     depends_on:
       - alpine-sshd
   alpine-sshd:
